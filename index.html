@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.js"></script>
+  <title ng-bind="respuesta"></title>
+</head>
+
+<body>
+  <div class="container"> Entiendes el contenido de este libro?
+    <input type="checkbox" ng-model="respuesta">
+    <div ng-hide="respuesta">
+      <h2>Me esforzare más!</h2>
+    </div>
+    <div ng-show="respuesta">
+      <h2>Felicidades!</h2>
+    </div>
+  </div>
+
+  <div class="container" ng-controller="miCtrl">
+    <h1 ng-bind="mensaje"> </h1>
+  </div>
+
+  <div class="container">
+    <div ng-controller="padreCtrl">
+      <button ng-click="logPadre()">Padre</button>
+      <div ng-controller="hijoCtrl">
+        <button ng-click="logHijo()">Hijo</button>
+        <div ng-controller="nietoCtrl">
+          <button ng-click="logNieto()">Nieto</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div ng-controller="amigo">
+    <p ng-bind="anuncio"></p>
+    <input type="text" ng-model="anuncio">
+  </div>
+<br><br>
+  <div ng-controller="controlador">
+    <form action="#">
+      Contraseña: <input type="password" ng-model="password">
+      <p ng-show="errorMinimo">Error: No cumple con el mínimo de caracteres (6)</p>
+    </form>
+  </div>
+
+  <script>
+    function padreCtrl($scope) {
+      $scope.padre = "soy el padre"
+      $scope.logPadre = function() {
+        console.log("soy el padre")
+      }
+    }
+
+    function hijoCtrl($scope) {
+      $scope.hijo = "soy el primer hijo"
+      $scope.edad = "36"
+
+      $scope.logHijo = function() {
+        console.log($scope.hijo, $scope.edad)
+      }
+    }
+
+    function nietoCtrl($scope) {
+      $scope.nieto = "soy el nieto"
+      $scope.edad = "4"
+      $scope.logNieto = function() {
+        console.log($scope.nieto, $scope.edad, $scope.hijo)
+      }
+    }
+  </script>
+
+  <script>
+    function miCtrl($scope) {
+      $scope.mensaje = "mensaje desde un controlador"
+    }
+  </script>
+
+  <script>
+    function amigo($scope) {
+      $scope.anuncio = "";
+    }
+  </script>
+
+  <script>
+  angular.module('app', [])
+  .controller('controlador', function($scope){
+    $scope.errorMinimo= false;
+    $scope$watch('password', function(nuevo, anterior){
+      if(!nuevo) return;
+      if(nuevo.lenght<6){
+        $scope.errorMinimo=true;
+      } else{
+        $scope.errorMinimo=false;
+      }
+    })
+  });
+
+  </script>
+
+  <script src="lib/angular.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+</body>
+
+</html>
