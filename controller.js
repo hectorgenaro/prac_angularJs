@@ -54,4 +54,17 @@ angular.module('app', [])
         $scope.coincidencia = false;
       }
     })
-  });
+  })
+
+  .controller('insertando', function($scope){
+    $scope.comentarioNew={}
+
+    $scope.comentarios=[]
+    $scope.inserta= function (){
+    $scope.comentarios.push($scope.comentarioNew)
+    $scope.comentarioNew={}
+    }
+    $scope.limpiaTabla= function(){
+      $scope.comentarios=[]
+    }
+  })

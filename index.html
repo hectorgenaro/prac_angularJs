@@ -30,11 +30,11 @@
 
   <div class="container">
     <div ng-controller="padreCtrl">
-      <button ng-click="logPadre()">Padre</button>
+      <button ng-click="logPadre()">Padre</button><br><br>
       <div ng-controller="hijoCtrl">
-        <button ng-click="logHijo()">Hijo</button>
+        <button ng-click="logHijo()">Hijo</button><br><br>
         <div ng-controller="nietoCtrl">
-          <button ng-click="logNieto()">Nieto</button>
+          <button ng-click="logNieto()">Nieto</button><br><br>
         </div>
       </div>
     </div>
@@ -61,6 +61,20 @@
       <p ng-hide="coincidencia">Error: Las contraseñas no coinciden</p>
     </form>
   </div>
+  <br><br>
+  <div ng-controller="insertando">
+    User name: <input type="text" ng-model="comentarioNew.user"><br><br>
+    Comentario: <input type="text" ng-model="comentarioNew.comentario"><br><br>
+    <button type="button" name="button" ng-click="inserta()">Agrega tu comentario</button>
+    <button type="button" name="button" ng-click="limpiaTabla()">borrar comentarios</button>
+    <ul>
+      <li ng-repeat="publica in comentarios">
+        <p> user: {{publica.user}} - comentario: {{publica.comentario}}</p>
+
+      </li>
+    </ul>
+  </div>
+
   <!-- <script src="lib/angular.js"></script>
   <script src="bower_components/angular/angular.js"></script> -->
 </body>
