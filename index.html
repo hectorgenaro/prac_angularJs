@@ -47,6 +47,7 @@
   <br><br>
 
   <div ng-controller="controlador">
+
     <form action="#">
       Contraseña: <input type="password" ng-model="password">
       <p ng-show="errorMinimo">Error: No cumple con el mínimo de caracteres (6)</p>
@@ -75,6 +76,10 @@
       </li>
     </ul>
   </div>
+   <div ng-controller='random'>
+<button type="button" name="button" ng-click='descrube()'>click here</button>     
+
+   </div>
 
   <script src="lib/angular.js"></script>
   <script src="bower_components/angular/angular.js"></script>

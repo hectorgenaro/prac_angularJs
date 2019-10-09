@@ -68,3 +68,15 @@ angular.module('app', [])
       $scope.comentarios=[]
     }
   })
+
+  .controller('ramdom', function($scope){
+    $scope.informacion = {
+      life : 'secret of the meaning',
+      space: 'sort kind of everything',
+      blackHole: 'the door from another dimention'
+    }
+    $scope.condicion= true
+    $scope.descubre= function(){
+      $scope.informacion
+    }
+  })
