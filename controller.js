@@ -69,14 +69,15 @@ angular.module('app', [])
     }
   })
 
-  .controller('ramdom', function($scope){
+  .controller('otro', function($scope){
     $scope.informacion = {
       life : 'secret of the meaning',
       space: 'sort kind of everything',
-      blackHole: 'the door from another dimention'
+      blackHole: 'the door from another dimetion'
     }
-    $scope.condicion= true
+
+
     $scope.descubre= function(){
-      $scope.informacion
+      $scope.cambia=!$scope.cambia
     }
   })

@@ -76,8 +76,15 @@
       </li>
     </ul>
   </div>
-   <div ng-controller='random'>
-<button type="button" name="button" ng-click='descrube()'>click here</button>     
+   <div class="container" ng-controller="otro">
+<button type="button" name="button" ng-model="cambia" ng-click="descubre()">click here</button>
+<ul ng-show="cambia">
+
+    <li>{{informacion.life}}</li>
+    <li>{{informacion.space}}</li>
+    <li>{{informacion.blackHole}}</li>
+
+</ul>
 
    </div>
 
