@@ -70,12 +70,11 @@ angular.module('app', [])
   })
 
   .controller('otro', function($scope){
-    $scope.informacion = {
-      life : 'secret of the meaning',
-      space: 'sort kind of everything',
-      blackHole: 'the door from another dimetion'
-    }
-
+    $scope.informacion =[
+      {life: 'secret of the meaning'},
+      {space: 'sort kind of everything'},
+      {blackHole: 'the door from another dimetion'}
+    ];
 
     $scope.descubre= function(){
       $scope.cambia=!$scope.cambia
