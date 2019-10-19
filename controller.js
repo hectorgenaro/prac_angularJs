@@ -69,7 +69,7 @@ angular.module('app', [])
     }
   })
 
-  .controller('otro', function($scope){
+  .controller('otroControlador', function($scope){
     $scope.informacion =[
       {life: 'secret of the meaning'},
       {space: 'sort kind of everything'},
